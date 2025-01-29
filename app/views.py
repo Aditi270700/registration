@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Student
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -19,9 +19,13 @@ def register(request):
         profile_pic=request.POST.get('profile-pic')
         resume=request.POST.get('resume')
         print(name,email,detail,phone,dob,subscribe,gender,password,cpassword,profile_pic,resume)
+        user = Student.objects.filter(email=email)
+        if user:
+            x = "Email already exist"
+            return render(request, 'register.html', {'msg': x})
+        else:
+            pass
         
-       
-        pass
     else:
         return render(request, 'register.html')
 def login(request):
