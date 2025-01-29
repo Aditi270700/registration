@@ -15,17 +15,16 @@
     <br>
     <label for="dob">DOB:</label>
     <input type="date" name="dob">
-    <label for="volume">Volume:</label>
+    
      <input
         type="range"
         id="volume"
         name="volume"
         min="0"
         max="100"
-        value="{{ volume|default:50 }}"
-        oninput="showValue(this.value)"
+        
     >
-    <span id="volumeValue">{{ volume|default:50 }}</span>
+    
     <br>
     <br>
     <label for="subscribe">Education:</label>
@@ -55,8 +54,3 @@
 
 </form>
 
-<script>
-    function showValue(val) {
-        document.getElementById('volumeValue').textContent = val;
-    }
-</script>
