@@ -25,7 +25,13 @@ def register(request):
             return render(request, 'register.html', {'msg': x})
         else:
             pass
-        
+        if password==cpassword:
+            Student.objects.create(name=name,email=email,detail=detail,phone=phone,dob=dob,subscribe=subscribe,gender=gender,profile_pic=profile_pic,resume=resume,password=password)
+            x = "Resgistration succesfully"
+            return render(request,'login.html',{'msg':x})
+        else:
+            x = "password and cpassword not match"
+            return render(request,'register.html',{'msg':x,'name':name,'email':email,'detail':detail,'phone':phone,'dob':dob,'subscribe':subscribe,'gender':gender,'profile_pic':profile_pic,'resume':resume,})
     else:
         return render(request, 'register.html')
 def login(request):
