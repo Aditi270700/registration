@@ -1,17 +1,17 @@
-{{msg}}
+<h1 style="width: 100%; height: 40px; background-color: purple; color: white;">{{msg}}</h1>
 <form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
      {% csrf_token %}
     <label for="username">Name:</label>
-    <input type="text" name="username" value={{name}} placeholder="Enter your name">
+    <input type="text" name="username" value={{name}}>
     <br>
     <label for="email">Email:</label>
-    <input type="email" name="email" value={{email}} placeholder="Enter your email">
+    <input type="email" name="email" value={{email}}>
     <br>
     <label for="detail">Description:</label>
     <textarea name="detail" cols="20" rows="5"></textarea>
     <br>
     <label for="phone">Contact:</label>
-    <input type="tel" name="phone" value={{phone}} placeholder="Enter your phone number">
+    <input type="tel" name="phone" value={{phone}}>
     <br>
     <br>
     <label for="dob">DOB:</label>
