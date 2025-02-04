@@ -43,6 +43,19 @@ def login(request):
         print(user)
         if user:
             data=Student.objects.get(email=email)
+            user_data={
+                'name':data.name,
+                'email':data.email,
+                'detail':data.detail,
+                'phone':data.phone,
+                'password':data.password,
+                'subscribe':data.subscribe,
+                'dob':data.dob,
+                'gender':data.gender,
+                'profile_pic':data.profile_pic,
+                'resume':data.resume
+            }
+            print(user_data)
             # print(data.name)
             # print(data.email)
             # print(data.detail)
@@ -55,7 +68,7 @@ def login(request):
             # print(data.resume)
             pass1 = data.password
             if pass1 == password:
-                return render(request, 'dashboard.html',{'name':data.name,'email':data.email,})
+                return render(request, 'dashboard.html',{'name':data.name,'email':data.email,'data':user_data})
             else:
                 msg = "Email and password not match"
                 return render(request, 'login.html',{'msg',msg})
@@ -64,4 +77,5 @@ def login(request):
             return render(request,'login.html',{'msg':msg})  
     else:
         return render(request,'login.html')
+    
     
