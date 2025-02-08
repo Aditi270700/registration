@@ -4,7 +4,7 @@
 <form action="{% url 'login' %}" method="post" enctype="multipart/form-data">
      {% csrf_token %}
 <label for="email">Email:</label>
-    <input type="email" name="email" value={{email}}>
+    <input type="email" name="email" value={{oldemail}}>
     <br><br>
     <label for="password">Password:</label>
     <input type="password" name="password" value={{password}}>

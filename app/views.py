@@ -71,7 +71,7 @@ def login(request):
                 return render(request, 'dashboard.html',{'name':data.name,'email':data.email,'data':user_data})
             else:
                 msg = "Email and password not match"
-                return render(request, 'login.html',{'msg',msg})
+                return render(request, 'login.html',{'msg':msg,'oldemail':email})
         else:
             msg = "Email id not exist"
             return render(request,'login.html',{'msg':msg})  
